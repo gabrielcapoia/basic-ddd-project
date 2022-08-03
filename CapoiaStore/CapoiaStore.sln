@@ -19,15 +19,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pagamentos", "Pagamentos", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vendas", "Vendas", "{D010A066-E73B-4CEC-A431-88FA1A0827B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capoia.Catalogo.Domain", "src\Capoia.Catalogo.Domain\Capoia.Catalogo.Domain.csproj", "{F616EF01-9359-4FD6-AA7E-B34A628F9274}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.Catalogo.Domain", "src\Capoia.Catalogo.Domain\Capoia.Catalogo.Domain.csproj", "{F616EF01-9359-4FD6-AA7E-B34A628F9274}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capoia.Core", "src\Capoia.Core\Capoia.Core.csproj", "{2EFFA195-7F0F-495A-8056-B49B6A9BFCD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.Core", "src\Capoia.Core\Capoia.Core.csproj", "{2EFFA195-7F0F-495A-8056-B49B6A9BFCD6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{ACFB01C8-C0BC-4681-ADE2-CE300A7A37DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capoia.Catalogo.Domain.Tests", "tests\Capoia.Catalogo.Domain.Tests\Capoia.Catalogo.Domain.Tests.csproj", "{C6A8FA72-68F8-43F9-9700-392DB00067F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.Catalogo.Domain.Tests", "tests\Capoia.Catalogo.Domain.Tests\Capoia.Catalogo.Domain.Tests.csproj", "{C6A8FA72-68F8-43F9-9700-392DB00067F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capoia.Catalogo.Data", "src\Capoia.Catalogo.Data\Capoia.Catalogo.Data.csproj", "{DCA62A43-0B2B-4028-959F-3F01B946F02E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.Catalogo.Data", "src\Capoia.Catalogo.Data\Capoia.Catalogo.Data.csproj", "{DCA62A43-0B2B-4028-959F-3F01B946F02E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capoia.Catalogo.Application", "src\Capoia.Catalogo.Application\Capoia.Catalogo.Application.csproj", "{A97F6EC7-4E2A-4A87-A733-39FA51C94D24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{DCA62A43-0B2B-4028-959F-3F01B946F02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA62A43-0B2B-4028-959F-3F01B946F02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCA62A43-0B2B-4028-959F-3F01B946F02E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A97F6EC7-4E2A-4A87-A733-39FA51C94D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A97F6EC7-4E2A-4A87-A733-39FA51C94D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A97F6EC7-4E2A-4A87-A733-39FA51C94D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A97F6EC7-4E2A-4A87-A733-39FA51C94D24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{ACFB01C8-C0BC-4681-ADE2-CE300A7A37DE} = {6CC0F199-16C7-4BE4-B611-1420DD03834A}
 		{C6A8FA72-68F8-43F9-9700-392DB00067F6} = {ACFB01C8-C0BC-4681-ADE2-CE300A7A37DE}
 		{DCA62A43-0B2B-4028-959F-3F01B946F02E} = {6CC0F199-16C7-4BE4-B611-1420DD03834A}
+		{A97F6EC7-4E2A-4A87-A733-39FA51C94D24} = {6CC0F199-16C7-4BE4-B611-1420DD03834A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90063682-1019-41B2-80D9-FD9BBE99E011}
