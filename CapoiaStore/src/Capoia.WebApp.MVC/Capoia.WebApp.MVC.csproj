@@ -22,4 +22,9 @@
     <ProjectReference Include="..\Capoia.Core\Capoia.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\AdminProdutos\" />
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>
