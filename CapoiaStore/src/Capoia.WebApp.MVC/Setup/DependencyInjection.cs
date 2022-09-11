@@ -4,6 +4,10 @@ using Capoia.Catalogo.Data.Repository;
 using Capoia.Catalogo.Domain;
 using Capoia.Catalogo.Domain.Events;
 using Capoia.Core.Bus;
+using CapoiaStore.Vendas.Application.Commands;
+using CapoiaStore.Vendas.Data;
+using CapoiaStore.Vendas.Data.Repository;
+using CapoiaStore.Vendas.Domain;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,6 +27,25 @@ namespace Capoia.WebApp.MVC.Setup
             services.AddScoped<CatalogoContext>();
 
             services.AddScoped<INotificationHandler<ProdutoAbaixoEstoqueEvent>, ProdutoEventHandler>();
+
+            //Vendas
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
+            //services.AddScoped<IPedidoQueries, PedidoQueries>();
+            services.AddScoped<VendasContext>();
+
+            services.AddScoped<IRequestHandler<AdicionarItemPedidoCommand, bool>, PedidoCommandHandler>();
+            //services.AddScoped<IRequestHandler<AtualizarItemPedidoCommand, bool>, PedidoCommandHandler>();
+            //services.AddScoped<IRequestHandler<RemoverItemPedidoCommand, bool>, PedidoCommandHandler>();
+            //services.AddScoped<IRequestHandler<AplicarVoucherPedidoCommand, bool>, PedidoCommandHandler>();
+            //services.AddScoped<IRequestHandler<IniciarPedidoCommand, bool>, PedidoCommandHandler>();
+            //services.AddScoped<IRequestHandler<FinalizarPedidoCommand, bool>, PedidoCommandHandler>();
+            //services.AddScoped<IRequestHandler<CancelarProcessamentoPedidoCommand, bool>, PedidoCommandHandler>();
+            //services.AddScoped<IRequestHandler<CancelarProcessamentoPedidoEstornarEstoqueCommand, bool>, PedidoCommandHandler>();
+
+            //services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
+            //services.AddScoped<INotificationHandler<PedidoEstoqueRejeitadoEvent>, PedidoEventHandler>();
+            //services.AddScoped<INotificationHandler<PagamentoRealizadoEvent>, PedidoEventHandler>();
+            //services.AddScoped<INotificationHandler<PagamentoRecusadoEvent>, PedidoEventHandler>();
         }
     }
 }

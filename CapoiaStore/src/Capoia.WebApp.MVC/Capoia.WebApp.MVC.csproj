@@ -20,6 +20,8 @@
     <ProjectReference Include="..\Capoia.Catalogo.Data\Capoia.Catalogo.Data.csproj" />
     <ProjectReference Include="..\Capoia.Catalogo.Domain\Capoia.Catalogo.Domain.csproj" />
     <ProjectReference Include="..\Capoia.Core\Capoia.Core.csproj" />
+    <ProjectReference Include="..\CapoiaStore.Vendas.Application\CapoiaStore.Vendas.Application.csproj" />
+    <ProjectReference Include="..\CapoiaStore.Vendas.Data\CapoiaStore.Vendas.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

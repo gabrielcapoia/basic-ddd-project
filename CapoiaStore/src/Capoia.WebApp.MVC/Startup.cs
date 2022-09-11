@@ -2,6 +2,7 @@ using Capoia.Catalogo.Application.AutoMapper;
 using Capoia.Catalogo.Data;
 using Capoia.WebApp.MVC.Data;
 using Capoia.WebApp.MVC.Setup;
+using CapoiaStore.Vendas.Data;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,9 @@ namespace Capoia.WebApp.MVC
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<CatalogoContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<VendasContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
