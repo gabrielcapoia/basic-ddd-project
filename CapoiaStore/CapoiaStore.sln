@@ -29,9 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.Catalogo.Domain.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.Catalogo.Data", "src\Capoia.Catalogo.Data\Capoia.Catalogo.Data.csproj", "{DCA62A43-0B2B-4028-959F-3F01B946F02E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capoia.Catalogo.Application", "src\Capoia.Catalogo.Application\Capoia.Catalogo.Application.csproj", "{A97F6EC7-4E2A-4A87-A733-39FA51C94D24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.Catalogo.Application", "src\Capoia.Catalogo.Application\Capoia.Catalogo.Application.csproj", "{A97F6EC7-4E2A-4A87-A733-39FA51C94D24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capoia.WebApp.MVC", "src\Capoia.WebApp.MVC\Capoia.WebApp.MVC.csproj", "{69723DA0-5616-4D06-A40F-578893E5F4FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.WebApp.MVC", "src\Capoia.WebApp.MVC\Capoia.WebApp.MVC.csproj", "{69723DA0-5616-4D06-A40F-578893E5F4FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Vendas.Domain", "src\CapoiaStore.Vendas.Domain\CapoiaStore.Vendas.Domain.csproj", "{66373876-6D65-4942-BAEB-207B4C005223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Vendas.Application", "src\CapoiaStore.Vendas.Application\CapoiaStore.Vendas.Application.csproj", "{D91DB08A-0B49-43BC-A7F2-890E554041FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Vendas.Data", "src\CapoiaStore.Vendas.Data\CapoiaStore.Vendas.Data.csproj", "{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{69723DA0-5616-4D06-A40F-578893E5F4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69723DA0-5616-4D06-A40F-578893E5F4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69723DA0-5616-4D06-A40F-578893E5F4FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66373876-6D65-4942-BAEB-207B4C005223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66373876-6D65-4942-BAEB-207B4C005223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66373876-6D65-4942-BAEB-207B4C005223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66373876-6D65-4942-BAEB-207B4C005223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D91DB08A-0B49-43BC-A7F2-890E554041FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91DB08A-0B49-43BC-A7F2-890E554041FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91DB08A-0B49-43BC-A7F2-890E554041FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91DB08A-0B49-43BC-A7F2-890E554041FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +99,9 @@ Global
 		{DCA62A43-0B2B-4028-959F-3F01B946F02E} = {6CC0F199-16C7-4BE4-B611-1420DD03834A}
 		{A97F6EC7-4E2A-4A87-A733-39FA51C94D24} = {6CC0F199-16C7-4BE4-B611-1420DD03834A}
 		{69723DA0-5616-4D06-A40F-578893E5F4FD} = {A98C195A-D50D-4465-803D-1D1980FB8C61}
+		{66373876-6D65-4942-BAEB-207B4C005223} = {D010A066-E73B-4CEC-A431-88FA1A0827B2}
+		{D91DB08A-0B49-43BC-A7F2-890E554041FF} = {D010A066-E73B-4CEC-A431-88FA1A0827B2}
+		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E} = {D010A066-E73B-4CEC-A431-88FA1A0827B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90063682-1019-41B2-80D9-FD9BBE99E011}
