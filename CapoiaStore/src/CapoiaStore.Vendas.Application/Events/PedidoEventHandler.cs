@@ -45,12 +45,12 @@ namespace CapoiaStore.Vendas.Application.Events
 
         public async Task Handle(PagamentoRealizadoEvent message, CancellationToken cancellationToken)
         {
-            //await _mediatorHandler.EnviarComando(new FinalizarPedidoCommand(message.PedidoId, message.ClienteId));
+            await _mediatorHandler.EnviarComando(new FinalizarPedidoCommand(message.PedidoId, message.ClienteId));
         }
 
         public async Task Handle(PagamentoRecusadoEvent message, CancellationToken cancellationToken)
         {
-            //await _mediatorHandler.EnviarComando(new CancelarProcessamentoPedidoEstornarEstoqueCommand(message.PedidoId, message.ClienteId));
+            await _mediatorHandler.EnviarComando(new CancelarProcessamentoPedidoEstornarEstoqueCommand(message.PedidoId, message.ClienteId));
         }
     }
 }
