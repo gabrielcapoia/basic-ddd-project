@@ -1,4 +1,5 @@
 ﻿using Capoia.Core.Messages;
+using Capoia.Core.Messages.CommonMessages.Notifications;
 using MediatR;
 using System.Threading.Tasks;
 
@@ -23,9 +24,9 @@ namespace Capoia.Core.Bus
             await _mediator.Publish(evento);
         }
 
-        //public async Task PublicarNotificacao<T>(T notificacao) where T : DomainNotification
-        //{
-        //    await _mediator.Publish(notificacao);
-        //}
+        public async Task PublicarNotificacao<T>(T notificacao) where T : DomainNotification
+        {
+            await _mediator.Publish(notificacao);
+        }
     }
 }

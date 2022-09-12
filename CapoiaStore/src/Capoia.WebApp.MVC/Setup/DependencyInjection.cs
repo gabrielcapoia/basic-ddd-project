@@ -4,6 +4,7 @@ using Capoia.Catalogo.Data.Repository;
 using Capoia.Catalogo.Domain;
 using Capoia.Catalogo.Domain.Events;
 using Capoia.Core.Bus;
+using Capoia.Core.Messages.CommonMessages.Notifications;
 using CapoiaStore.Vendas.Application.Commands;
 using CapoiaStore.Vendas.Data;
 using CapoiaStore.Vendas.Data.Repository;
@@ -17,8 +18,11 @@ namespace Capoia.WebApp.MVC.Setup
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            // Domain Bus (Mediator)
+            // Mediator
             services.AddScoped<IMediatrHandler, MediatrHandler>();
+
+            // Notifications
+            services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
 
             // Catalogo
             services.AddScoped<IProdutoRepository, ProdutoRepository>();

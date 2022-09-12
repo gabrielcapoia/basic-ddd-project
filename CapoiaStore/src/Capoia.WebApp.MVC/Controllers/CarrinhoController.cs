@@ -1,6 +1,8 @@
 ﻿using Capoia.Catalogo.Application.Services;
 using Capoia.Core.Bus;
+using Capoia.Core.Messages.CommonMessages.Notifications;
 using CapoiaStore.Vendas.Application.Commands;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -13,10 +15,10 @@ namespace Capoia.WebApp.MVC.Controllers
         //private readonly IPedidoQueries _pedidoQueries;
         private readonly IMediatrHandler _mediatorHandler;
 
-        public CarrinhoController(/*INotificationHandler<DomainNotification> notifications,*/
+        public CarrinhoController(INotificationHandler<DomainNotification> notifications,
                                   IProdutoAppService produtoAppService,
                                   IMediatrHandler mediatorHandler/*,
-                                  IPedidoQueries pedidoQueries*/) : base(/*notifications,*/ mediatorHandler)
+                                  IPedidoQueries pedidoQueries*/) : base(notifications, mediatorHandler)
         {
             _produtoAppService = produtoAppService;
             _mediatorHandler = mediatorHandler;
@@ -45,12 +47,12 @@ namespace Capoia.WebApp.MVC.Controllers
             var command = new AdicionarItemPedidoCommand(ClienteId, produto.Id, produto.Nome, quantidade, produto.Valor);
             await _mediatorHandler.EnviarComando(command);
 
-            //if (OperacaoValida())
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            if (OperacaoValida())
+            {
+                return RedirectToAction("Index");
+            }
 
-            //TempData["Erros"] = ObterMensagensErro();
+            TempData["Erros"] = ObterMensagensErro();
             return RedirectToAction("ProdutoDetalhe", "Vitrine", new { id });
         }
 
@@ -64,10 +66,10 @@ namespace Capoia.WebApp.MVC.Controllers
             //var command = new RemoverItemPedidoCommand(ClienteId, id);
             //await _mediatorHandler.EnviarComando(command);
 
-            //if (OperacaoValida())
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            if (OperacaoValida())
+            {
+                return RedirectToAction("Index");
+            }
 
             return View("Index"/*, await _pedidoQueries.ObterCarrinhoCliente(ClienteId)*/);
         }
@@ -82,10 +84,10 @@ namespace Capoia.WebApp.MVC.Controllers
             //var command = new AtualizarItemPedidoCommand(ClienteId, id, quantidade);
             //await _mediatorHandler.EnviarComando(command);
 
-            //if (OperacaoValida())
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            if (OperacaoValida())
+            {
+                return RedirectToAction("Index");
+            }
 
             return View("Index"/*, await _pedidoQueries.ObterCarrinhoCliente(ClienteId)*/);
         }
@@ -97,10 +99,10 @@ namespace Capoia.WebApp.MVC.Controllers
             //var command = new AplicarVoucherPedidoCommand(ClienteId, voucherCodigo);
             //await _mediatorHandler.EnviarComando(command);
 
-            //if (OperacaoValida())
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            if (OperacaoValida())
+            {
+                return RedirectToAction("Index");
+            }
 
             return View("Index"/*, await _pedidoQueries.ObterCarrinhoCliente(ClienteId)*/);
         }

@@ -1,5 +1,6 @@
 ﻿using Capoia.Catalogo.Domain;
 using Capoia.Core.Data;
+using Capoia.Core.Messages;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace Capoia.Catalogo.Data
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
                 e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
+
+            modelBuilder.Ignore<Event>();
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogoContext).Assembly);
         }
