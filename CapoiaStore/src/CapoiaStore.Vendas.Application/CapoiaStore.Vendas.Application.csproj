@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Capoia.Core\Capoia.Core.csproj" />
     <ProjectReference Include="..\CapoiaStore.Vendas.Domain\CapoiaStore.Vendas.Domain.csproj" />
   </ItemGroup>

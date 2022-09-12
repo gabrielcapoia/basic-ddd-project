@@ -7,6 +7,7 @@ using Capoia.Core.Bus;
 using Capoia.Core.Messages.CommonMessages.Notifications;
 using CapoiaStore.Vendas.Application.Commands;
 using CapoiaStore.Vendas.Application.Events;
+using CapoiaStore.Vendas.Application.Queries;
 using CapoiaStore.Vendas.Data;
 using CapoiaStore.Vendas.Data.Repository;
 using CapoiaStore.Vendas.Domain;
@@ -35,7 +36,7 @@ namespace Capoia.WebApp.MVC.Setup
 
             //Vendas
             services.AddScoped<IPedidoRepository, PedidoRepository>();
-            //services.AddScoped<IPedidoQueries, PedidoQueries>();
+            services.AddScoped<IPedidoQueries, PedidoQueries>();
             services.AddScoped<VendasContext>();
 
             services.AddScoped<IRequestHandler<AdicionarItemPedidoCommand, bool>, PedidoCommandHandler>();
