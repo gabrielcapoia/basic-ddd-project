@@ -6,6 +6,7 @@ using Capoia.Catalogo.Domain.Events;
 using Capoia.Core.Bus;
 using Capoia.Core.Messages.CommonMessages.Notifications;
 using CapoiaStore.Vendas.Application.Commands;
+using CapoiaStore.Vendas.Application.Events;
 using CapoiaStore.Vendas.Data;
 using CapoiaStore.Vendas.Data.Repository;
 using CapoiaStore.Vendas.Domain;
@@ -46,7 +47,7 @@ namespace Capoia.WebApp.MVC.Setup
             //services.AddScoped<IRequestHandler<CancelarProcessamentoPedidoCommand, bool>, PedidoCommandHandler>();
             //services.AddScoped<IRequestHandler<CancelarProcessamentoPedidoEstornarEstoqueCommand, bool>, PedidoCommandHandler>();
 
-            //services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
             //services.AddScoped<INotificationHandler<PedidoEstoqueRejeitadoEvent>, PedidoEventHandler>();
             //services.AddScoped<INotificationHandler<PagamentoRealizadoEvent>, PedidoEventHandler>();
             //services.AddScoped<INotificationHandler<PagamentoRecusadoEvent>, PedidoEventHandler>();

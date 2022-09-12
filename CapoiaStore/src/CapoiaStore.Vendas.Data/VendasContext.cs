@@ -4,21 +4,19 @@ using Capoia.Core.Messages;
 using CapoiaStore.Vendas.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CapoiaStore.Vendas.Data
 {
     public class VendasContext : DbContext, IUnitOfWork
     {
-        //private readonly IMediatrHandler _mediatorHandler;
+        private readonly IMediatrHandler _mediatorHandler;
 
-        public VendasContext(DbContextOptions<VendasContext> options/*, IMediatrHandler mediatorHandler*/)
+        public VendasContext(DbContextOptions<VendasContext> options, IMediatrHandler mediatorHandler)
             : base(options)
         {
-            //_mediatorHandler = mediatorHandler;
+            _mediatorHandler = mediatorHandler;
         }
 
         public DbSet<Pedido> Pedidos { get; set; }
@@ -42,7 +40,7 @@ namespace CapoiaStore.Vendas.Data
             }
 
             var sucesso = await base.SaveChangesAsync() > 0;
-            //if (sucesso) await _mediatorHandler.PublicarEventos(this);
+            if (sucesso) await _mediatorHandler.PublicarEventos(this);
 
             return sucesso;
         }

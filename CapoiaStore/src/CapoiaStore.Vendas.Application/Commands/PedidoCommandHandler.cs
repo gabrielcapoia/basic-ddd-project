@@ -1,12 +1,10 @@
 ﻿using Capoia.Core.Bus;
 using Capoia.Core.Messages;
 using Capoia.Core.Messages.CommonMessages.Notifications;
+using CapoiaStore.Vendas.Application.Events;
 using CapoiaStore.Vendas.Domain;
 using MediatR;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -38,7 +36,7 @@ namespace CapoiaStore.Vendas.Application.Commands
                 pedido.AdicionarItem(pedidoItem);
 
                 _pedidoRepository.Adicionar(pedido);
-                //pedido.AdicionarEvento(new PedidoRascunhoIniciadoEvent(message.ClienteId, message.ProdutoId));
+                pedido.AdicionarEvento(new PedidoRascunhoIniciadoEvent(message.ClienteId, message.ProdutoId));
             }
             else
             {
@@ -54,10 +52,10 @@ namespace CapoiaStore.Vendas.Application.Commands
                     _pedidoRepository.AdicionarItem(pedidoItem);
                 }
 
-                //pedido.AdicionarEvento(new PedidoAtualizadoEvent(pedido.ClienteId, pedido.Id, pedido.ValorTotal));
+                pedido.AdicionarEvento(new PedidoAtualizadoEvent(pedido.ClienteId, pedido.Id, pedido.ValorTotal));
             }
 
-            //pedido.AdicionarEvento(new PedidoItemAdicionadoEvent(pedido.ClienteId, pedido.Id, message.ProdutoId, message.Nome, message.ValorUnitario, message.Quantidade));
+            pedido.AdicionarEvento(new PedidoItemAdicionadoEvent(pedido.ClienteId, pedido.Id, message.ProdutoId, message.Nome, message.ValorUnitario, message.Quantidade));
             return await _pedidoRepository.UnitOfWork.Commit();
         }
 
