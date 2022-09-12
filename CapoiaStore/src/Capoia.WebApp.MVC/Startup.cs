@@ -2,6 +2,7 @@ using Capoia.Catalogo.Application.AutoMapper;
 using Capoia.Catalogo.Data;
 using Capoia.WebApp.MVC.Data;
 using Capoia.WebApp.MVC.Setup;
+using CapoiaStore.Pagamentos.Data;
 using CapoiaStore.Vendas.Data;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,9 @@ namespace Capoia.WebApp.MVC
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<VendasContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<PagamentoContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();

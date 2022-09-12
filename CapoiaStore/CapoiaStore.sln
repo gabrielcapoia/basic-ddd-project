@@ -33,11 +33,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.Catalogo.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Capoia.WebApp.MVC", "src\Capoia.WebApp.MVC\Capoia.WebApp.MVC.csproj", "{69723DA0-5616-4D06-A40F-578893E5F4FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Vendas.Domain", "src\CapoiaStore.Vendas.Domain\CapoiaStore.Vendas.Domain.csproj", "{66373876-6D65-4942-BAEB-207B4C005223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapoiaStore.Vendas.Domain", "src\CapoiaStore.Vendas.Domain\CapoiaStore.Vendas.Domain.csproj", "{66373876-6D65-4942-BAEB-207B4C005223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Vendas.Application", "src\CapoiaStore.Vendas.Application\CapoiaStore.Vendas.Application.csproj", "{D91DB08A-0B49-43BC-A7F2-890E554041FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapoiaStore.Vendas.Application", "src\CapoiaStore.Vendas.Application\CapoiaStore.Vendas.Application.csproj", "{D91DB08A-0B49-43BC-A7F2-890E554041FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Vendas.Data", "src\CapoiaStore.Vendas.Data\CapoiaStore.Vendas.Data.csproj", "{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapoiaStore.Vendas.Data", "src\CapoiaStore.Vendas.Data\CapoiaStore.Vendas.Data.csproj", "{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Pagamentos.AntiCorruption", "src\CapoiaStore.Pagamentos.AntiCorruption\CapoiaStore.Pagamentos.AntiCorruption.csproj", "{88B0530B-061D-41FE-9214-A243621A728C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Pagamentos.Business", "src\CapoiaStore.Pagamentos.Business\CapoiaStore.Pagamentos.Business.csproj", "{AE470B18-77CA-4F36-8AB8-DDEBD34EA7D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapoiaStore.Pagamentos.Data", "src\CapoiaStore.Pagamentos.Data\CapoiaStore.Pagamentos.Data.csproj", "{0DBD2A7B-FC59-4705-90D0-0E3819C92699}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +87,18 @@ Global
 		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B0530B-061D-41FE-9214-A243621A728C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B0530B-061D-41FE-9214-A243621A728C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B0530B-061D-41FE-9214-A243621A728C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B0530B-061D-41FE-9214-A243621A728C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE470B18-77CA-4F36-8AB8-DDEBD34EA7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE470B18-77CA-4F36-8AB8-DDEBD34EA7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE470B18-77CA-4F36-8AB8-DDEBD34EA7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE470B18-77CA-4F36-8AB8-DDEBD34EA7D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBD2A7B-FC59-4705-90D0-0E3819C92699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBD2A7B-FC59-4705-90D0-0E3819C92699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBD2A7B-FC59-4705-90D0-0E3819C92699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBD2A7B-FC59-4705-90D0-0E3819C92699}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +120,9 @@ Global
 		{66373876-6D65-4942-BAEB-207B4C005223} = {D010A066-E73B-4CEC-A431-88FA1A0827B2}
 		{D91DB08A-0B49-43BC-A7F2-890E554041FF} = {D010A066-E73B-4CEC-A431-88FA1A0827B2}
 		{08A6F51E-D4DD-4F08-BF5E-28E2CA30E68E} = {D010A066-E73B-4CEC-A431-88FA1A0827B2}
+		{88B0530B-061D-41FE-9214-A243621A728C} = {A1FF9168-FF68-41CE-B40C-F61044A2C04B}
+		{AE470B18-77CA-4F36-8AB8-DDEBD34EA7D0} = {A1FF9168-FF68-41CE-B40C-F61044A2C04B}
+		{0DBD2A7B-FC59-4705-90D0-0E3819C92699} = {A1FF9168-FF68-41CE-B40C-F61044A2C04B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90063682-1019-41B2-80D9-FD9BBE99E011}
