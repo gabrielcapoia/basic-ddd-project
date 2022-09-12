@@ -1,4 +1,6 @@
 ﻿using Capoia.Core.Bus;
+using Capoia.Core.Messages.CommonMessages.IntegrationEvents;
+using CapoiaStore.Vendas.Application.Commands;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,8 +10,8 @@ namespace CapoiaStore.Vendas.Application.Events
     public class PedidoEventHandler :
         INotificationHandler<PedidoRascunhoIniciadoEvent>,
         INotificationHandler<PedidoAtualizadoEvent>,
-        INotificationHandler<PedidoItemAdicionadoEvent>/*,
-        INotificationHandler<PedidoEstoqueRejeitadoEvent>,
+        INotificationHandler<PedidoItemAdicionadoEvent>,
+        INotificationHandler<PedidoEstoqueRejeitadoEvent>/*,
         INotificationHandler<PagamentoRealizadoEvent>,
         INotificationHandler<PagamentoRecusadoEvent>*/
     {
@@ -36,10 +38,10 @@ namespace CapoiaStore.Vendas.Application.Events
             return Task.CompletedTask;
         }
 
-        //public async Task Handle(PedidoEstoqueRejeitadoEvent message, CancellationToken cancellationToken)
-        //{
-        //    await _mediatorHandler.EnviarComando(new CancelarProcessamentoPedidoCommand(message.PedidoId, message.ClienteId));
-        //}
+        public async Task Handle(PedidoEstoqueRejeitadoEvent message, CancellationToken cancellationToken)
+        {
+            await _mediatorHandler.EnviarComando(new CancelarProcessamentoPedidoCommand(message.PedidoId, message.ClienteId));
+        }
 
         //public async Task Handle(PagamentoRealizadoEvent message, CancellationToken cancellationToken)
         //{

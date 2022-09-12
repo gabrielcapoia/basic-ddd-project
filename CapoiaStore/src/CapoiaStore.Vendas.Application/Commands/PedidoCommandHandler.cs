@@ -1,9 +1,13 @@
 ﻿using Capoia.Core.Bus;
+using Capoia.Core.DomainObjects.DTO;
+using Capoia.Core.Extentions;
 using Capoia.Core.Messages;
+using Capoia.Core.Messages.CommonMessages.IntegrationEvents;
 using Capoia.Core.Messages.CommonMessages.Notifications;
 using CapoiaStore.Vendas.Application.Events;
 using CapoiaStore.Vendas.Domain;
 using MediatR;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,7 +18,9 @@ namespace CapoiaStore.Vendas.Application.Commands
         IRequestHandler<AdicionarItemPedidoCommand, bool>,
         IRequestHandler<AtualizarItemPedidoCommand, bool>,
         IRequestHandler<RemoverItemPedidoCommand, bool>,
-        IRequestHandler<AplicarVoucherPedidoCommand, bool>
+        IRequestHandler<AplicarVoucherPedidoCommand, bool>,
+        IRequestHandler<IniciarPedidoCommand, bool>,
+        IRequestHandler<CancelarProcessamentoPedidoCommand, bool>
     {
         private readonly IPedidoRepository _pedidoRepository;
         private readonly IMediatrHandler _mediatorHandler;
@@ -158,6 +164,38 @@ namespace CapoiaStore.Vendas.Application.Commands
             pedido.AdicionarEvento(new VoucherAplicadoPedidoEvent(message.ClienteId, pedido.Id, voucher.Id));
 
             _pedidoRepository.Atualizar(pedido);
+
+            return await _pedidoRepository.UnitOfWork.Commit();
+        }
+
+        public async Task<bool> Handle(IniciarPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return false;
+
+            var pedido = await _pedidoRepository.ObterPedidoRascunhoPorClienteId(message.ClienteId);
+            pedido.IniciarPedido();
+
+            var itensList = new List<Item>();
+            pedido.PedidoItems.ForEach(i => itensList.Add(new Item { Id = i.ProdutoId, Quantidade = i.Quantidade }));
+            var listaProdutosPedido = new ListaProdutosPedido { PedidoId = pedido.Id, Itens = itensList };
+
+            pedido.AdicionarEvento(new PedidoIniciadoEvent(pedido.Id, pedido.ClienteId, listaProdutosPedido, pedido.ValorTotal, message.NomeCartao, message.NumeroCartao, message.ExpiracaoCartao, message.CvvCartao));
+
+            _pedidoRepository.Atualizar(pedido);
+            return await _pedidoRepository.UnitOfWork.Commit();
+        }
+
+        public async Task<bool> Handle(CancelarProcessamentoPedidoCommand message, CancellationToken cancellationToken)
+        {
+            var pedido = await _pedidoRepository.ObterPorId(message.PedidoId);
+
+            if (pedido == null)
+            {
+                await _mediatorHandler.PublicarNotificacao(new DomainNotification("pedido", "Pedido não encontrado!"));
+                return false;
+            }
+
+            pedido.TornarRascunho();
 
             return await _pedidoRepository.UnitOfWork.Commit();
         }

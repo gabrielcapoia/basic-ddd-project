@@ -121,10 +121,10 @@ namespace Capoia.WebApp.MVC.Controllers
         {
             var carrinho = await _pedidoQueries.ObterCarrinhoCliente(ClienteId);
 
-            //var command = new IniciarPedidoCommand(carrinho.PedidoId, ClienteId, carrinho.ValorTotal, carrinhoViewModel.Pagamento.NomeCartao,
-            //    carrinhoViewModel.Pagamento.NumeroCartao, carrinhoViewModel.Pagamento.ExpiracaoCartao, carrinhoViewModel.Pagamento.CvvCartao);
+            var command = new IniciarPedidoCommand(carrinho.PedidoId, ClienteId, carrinho.ValorTotal, carrinhoViewModel.Pagamento.NomeCartao,
+                carrinhoViewModel.Pagamento.NumeroCartao, carrinhoViewModel.Pagamento.ExpiracaoCartao, carrinhoViewModel.Pagamento.CvvCartao);
 
-            //await _mediatorHandler.EnviarComando(command);
+            await _mediatorHandler.EnviarComando(command);
 
             if (OperacaoValida())
             {
