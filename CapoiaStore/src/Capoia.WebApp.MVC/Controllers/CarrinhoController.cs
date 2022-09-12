@@ -65,8 +65,8 @@ namespace Capoia.WebApp.MVC.Controllers
             var produto = await _produtoAppService.ObterPorId(id);
             if (produto == null) return BadRequest();
 
-            //var command = new RemoverItemPedidoCommand(ClienteId, id);
-            //await _mediatorHandler.EnviarComando(command);
+            var command = new RemoverItemPedidoCommand(ClienteId, id);
+            await _mediatorHandler.EnviarComando(command);
 
             if (OperacaoValida())
             {
@@ -83,23 +83,23 @@ namespace Capoia.WebApp.MVC.Controllers
             var produto = await _produtoAppService.ObterPorId(id);
             if (produto == null) return BadRequest();
 
-            //var command = new AtualizarItemPedidoCommand(ClienteId, id, quantidade);
-            //await _mediatorHandler.EnviarComando(command);
+            var command = new AtualizarItemPedidoCommand(ClienteId, id, quantidade);
+            await _mediatorHandler.EnviarComando(command);
 
             if (OperacaoValida())
             {
                 return RedirectToAction("Index");
             }
 
-            return View("Index"/*, await _pedidoQueries.ObterCarrinhoCliente(ClienteId)*/);
+            return View("Index", await _pedidoQueries.ObterCarrinhoCliente(ClienteId));
         }
 
         [HttpPost]
         [Route("aplicar-voucher")]
         public async Task<IActionResult> AplicarVoucher(string voucherCodigo)
         {
-            //var command = new AplicarVoucherPedidoCommand(ClienteId, voucherCodigo);
-            //await _mediatorHandler.EnviarComando(command);
+            var command = new AplicarVoucherPedidoCommand(ClienteId, voucherCodigo);
+            await _mediatorHandler.EnviarComando(command);
 
             if (OperacaoValida())
             {
